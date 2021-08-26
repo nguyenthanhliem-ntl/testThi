@@ -1,0 +1,21 @@
+<h1>Xoá </h1>
+<form [formGroup]="bookGroup" (ngSubmit)="deleteBook(id)">
+  <table>
+    <tr>
+      <td>Chức vụ:</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Tác giả :</td>
+      <td><input type="text" formControlName="author"></td>
+    </tr>
+    <tr>
+      <td>Chú thích :</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Xoá</button></td>
+    </tr>
+  </table>
+</form>
