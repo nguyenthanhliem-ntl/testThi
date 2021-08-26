@@ -1,1 +1,15 @@
-<p>list works!</p>
+<h1>Danh sách </h1>
+<a routerLink="/book/create">Tạo mới danh mục</a>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>Tên</td>
+    <td colspan="5"></td>
+  </tr>
+  <tr *ngFor="let book of books; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{book.title}}</td>
+    <td><a [routerLink]="['/book/edit',book.id]">Edit</a></td>
+    <td><a [routerLink]="['/book/delete',book.id]">Delete</a></td>
+  </tr>
+</table>
