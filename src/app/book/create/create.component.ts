@@ -10,6 +10,10 @@ import {BookService} from '../../server/book.service';
 export class CreateComponent implements OnInit {
 bookForm: FormGroup = new FormGroup({
   title: new FormControl(),
+  author: new FormControl(),
+  description: new FormControl()
+
+
 });
   constructor(private bookService: BookService) { }
 
@@ -20,6 +24,7 @@ bookForm: FormGroup = new FormGroup({
     const book = this.bookForm.value;
     this.bookService.saveBook(book).subscribe(() => {
       this.bookForm.reset();
+      alert('ok!');
     }, e => {
       console.log(e);
     });

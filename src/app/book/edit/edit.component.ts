@@ -9,11 +9,11 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-bookForm: FormGroup;
+bookForm: FormGroup ;
 id: number;
   constructor(private bookService: BookService,
-              private activateddRouter: ActivatedRoute) {
-    this.activateddRouter.paramMap.subscribe((paramMap: ParamMap) => {
+              private activatedRouter: ActivatedRoute) {
+    this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       this.getBook(this.id);
     });
@@ -25,7 +25,9 @@ id: number;
   getBook(id: number) {
     return this.bookService.findById(id).subscribe(book => {
       this.bookForm = new FormGroup({
-        title: new FormControl(book.title)
+        title: new FormControl(book.title),
+        author: new FormControl(book.author),
+        description: new FormControl(book.description)
       });
     });
   }

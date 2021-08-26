@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Book} from '../model/book';
-const API_URL = 'http://localhost:3001' ;
+import {environment} from '../../environments/environment';
+const API_URL = `${environment.apiUrl}`;
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +13,11 @@ export class BookService {
 
 
 getAll(): Observable<Book[]> {
-  return this.http.get<Book[]>(API_URL + '/books/list');
+  return this.http.get<Book[]>(API_URL + '/books');
 }
 
 saveBook(book): Observable<Book> {
-  return this.http.post<Book>(API_URL + '/books/create', book);
+  return this.http.post<Book>(API_URL + '/books', book);
 }
 
 findById(id: number): Observable<Book> {

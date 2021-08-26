@@ -9,7 +9,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-bookForm: FormGroup;
+bookForm: FormGroup ;
 id: number;
   constructor(private bookService: BookService,
               private router: Router,
